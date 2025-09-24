@@ -20,7 +20,7 @@ const token=localStorage.getItem("workhiveToken")
     const fetchUserDetails=async()=>{
       try {
       
-        const res=await axios.get(backendUrl+"/api/v1/user/userDetails",{withCredentials:true},{headers:{Authorization:`Bearer ${token}`}});
+        const res=await axios.get(backendUrl+"/api/v1/user/userDetails",{headers:{Authorization:`Bearer ${token}`}});
        
         setTasks(res.data.tasks)
       } catch (error) {

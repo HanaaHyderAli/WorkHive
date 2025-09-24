@@ -27,15 +27,16 @@ const Login = () => {
             const res= await axios.post(backendUrl+
                 "/api/v1/user/login",
                 Values,
-                {withCredentials:true,}
+                
             );
 
             if(res.data.success){
          
           
           toast.success(res.data.success)
+          
           localStorage.setItem("userLoggedIn","yes")
-          localStorage.setItem("workhiveToken",response.data.token)
+          localStorage.setItem("workhiveToken",res.data.token)
           navigate('/dashboard')
         } else{
           console.log("hi")

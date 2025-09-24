@@ -3,7 +3,7 @@ import cors from 'cors'
 import 'dotenv/config'
 import connectDB from './config/mongodb.js'
 import userRouter from './routes/userRoute.js'
-import cookieParser from 'cookie-parser'
+// import cookieParser from 'cookie-parser'
 import taskRouter from './routes/taskRoute.js'
 
 
@@ -21,11 +21,11 @@ connectDB()
 app.use(express.json())
 app.use(cors({
     origin:["http://localhost:5173","https://work-hive-eta.vercel.app"],
-    credentials:true,
+    credentials:false,
 }
    
 ))
-app.use(cookieParser());
+// app.use(cookieParser());
 
 
 app.use('/api/v1/user',userRouter)

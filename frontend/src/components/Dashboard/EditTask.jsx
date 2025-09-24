@@ -24,7 +24,7 @@ const EditTask = ({  EditTaskId ,setEditTaskDiv}) => {
     
     try {
         
-        const res=await axios.get(backendUrl+`/api/v1/task/getTask/${EditTaskId}`,{withCredentials:true},{headers:{Authorization:`Bearer ${token}`}});
+        const res=await axios.get(backendUrl+`/api/v1/task/getTask/${EditTaskId}`,{headers:{Authorization:`Bearer ${token}`}});
         
  
         setValues(res.data.taskDetails)
@@ -43,7 +43,7 @@ const EditTask = ({  EditTaskId ,setEditTaskDiv}) => {
       const res = await axios.put(backendUrl+
         `/api/v1/task/editTask/${id}`,
         Values,
-        { withCredentials: true },{headers:{Authorization:`Bearer ${token}`}}
+        {headers:{Authorization:`Bearer ${token}`}}
       );
      
      
@@ -63,7 +63,7 @@ const EditTask = ({  EditTaskId ,setEditTaskDiv}) => {
       const res = await axios.delete(backendUrl+
         `/api/v1/task/deleteTask/${id}`,
         
-        { withCredentials: true },{headers:{Authorization:`Bearer ${token}`}}
+       {headers:{Authorization:`Bearer ${token}`}}
       );
      
      

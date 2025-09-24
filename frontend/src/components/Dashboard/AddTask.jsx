@@ -16,7 +16,7 @@ const AddTask = ({setAddTaskDiv}) => {
   e.preventDefault();
 
   try {
-    const response= await axios.post(backendUrl+"/api/v1/task/addTask",Values,{withCredentials:true},{headers:{Authorization:`Bearer ${token}`}});
+    const response= await axios.post(backendUrl+"/api/v1/task/addTask",Values,{headers:{Authorization:`Bearer ${token}`}});
     
       toast.success(response.data.success)
 

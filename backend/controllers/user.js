@@ -51,13 +51,13 @@ const login= async(req,res)=>{
             bcrypt.compare(password,checkUser.password, (err,data)=>{
                 if(data){
                     const token=jwt.sign({id:checkUser._id, email:checkUser.email},process.env.JWT_SECRET, {expiresIn:"30d"})
-                    res.cookie('workhiveToken',token,{
-                        httpOnly:true,
-                        maxAge:30*24*60*60*1000,
-                        secure:true,
-                        sameSite:"None",
-                        path:"/"
-                    })
+                    // res.cookie('workhiveToken',token,{
+                    //     httpOnly:true,
+                    //     maxAge:30*24*60*60*1000,
+                    //     secure:true,
+                    //     sameSite:"None",
+                    //     path:"/"
+                    // })
                      return res.status(200).json({success:"Login success",token})
                 }
             })
@@ -74,7 +74,7 @@ const login= async(req,res)=>{
 
 const logout =async(req,res)=>{
     try {
-        res.clearCookie("workhiveToken",{httpOnly:true});
+        // res.clearCookie("workhiveToken",{httpOnly:true});
         res.json({message:"Logged out"})
     } catch (error) {
         console.log(error);

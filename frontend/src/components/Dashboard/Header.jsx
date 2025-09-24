@@ -12,7 +12,7 @@ const Header = ({setAddTaskDiv}) => {
   const logout=async()=>{
    try {
     const res=await axios.post(backendUrl+
-      "/api/v1/user/logout",{},{withCredentials: true}
+      "/api/v1/user/logout",{}
     );
     toast.success(res.data.success)
     localStorage.clear("userLoggedIn")

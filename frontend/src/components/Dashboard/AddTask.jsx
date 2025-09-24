@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios'
 import { backendUrl } from '../../config';
 const AddTask = ({setAddTaskDiv}) => {
+  const token=localStorage.getItem("workhiveToken")
   const[Values,setValues]=useState({title:"",description:"",priority:"low",status:"yetToStart"})
 
   const change=(e)=>{
@@ -15,7 +16,7 @@ const AddTask = ({setAddTaskDiv}) => {
   e.preventDefault();
 
   try {
-    const response= await axios.post(backendUrl+"/api/v1/task/addTask",Values,{withCredentials:true});
+    const response= await axios.post(backendUrl+"/api/v1/task/addTask",Values,{withCredentials:true},{headers:{Authorization:`Bearer ${token}`}});
     
       toast.success(response.data.success)
 

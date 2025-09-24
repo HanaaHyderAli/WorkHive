@@ -58,7 +58,7 @@ const login= async(req,res)=>{
                         sameSite:"None",
                         path:"/"
                     })
-                     return res.status(200).json({success:"Login success"})
+                     return res.status(200).json({success:"Login success",token})
                 }
             })
         }else{

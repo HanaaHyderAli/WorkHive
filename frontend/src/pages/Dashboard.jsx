@@ -14,13 +14,13 @@ const Dashboard = () => {
   const [Tasks, setTasks]=useState()
   const [EditTaskId,setEditTaskId]=useState("")
 
-
+const token=localStorage.getItem("workhiveToken")
   useEffect(()=>{
   
     const fetchUserDetails=async()=>{
       try {
       
-        const res=await axios.get(backendUrl+"/api/v1/user/userDetails",{withCredentials:true});
+        const res=await axios.get(backendUrl+"/api/v1/user/userDetails",{withCredentials:true},{headers:{Authorization:`Bearer ${token}`}});
        
         setTasks(res.data.tasks)
       } catch (error) {

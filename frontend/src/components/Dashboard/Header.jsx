@@ -16,6 +16,7 @@ const Header = ({setAddTaskDiv}) => {
     );
     toast.success(res.data.success)
     localStorage.clear("userLoggedIn")
+    localStorage.clear("workhiveToken")
     navigate("/login")
     
    } catch (error) {

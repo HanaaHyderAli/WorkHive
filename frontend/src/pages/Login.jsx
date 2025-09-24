@@ -35,6 +35,7 @@ const Login = () => {
           
           toast.success(res.data.success)
           localStorage.setItem("userLoggedIn","yes")
+          localStorage.setItem("workhiveToken",response.data.token)
           navigate('/dashboard')
         } else{
           console.log("hi")

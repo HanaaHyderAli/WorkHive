@@ -19,7 +19,7 @@ const Dashboard = () => {
     const fetchUserDetails=async()=>{
       try {
       
-        const res=await axios.get("http://localhost:4000/api/v1/user/userDetails",{withCredentials:true});
+        const res=await axios.get("https://work-hive-backend.vercel.app/api/v1/user/userDetails",{withCredentials:true});
        
         setTasks(res.data.tasks)
       } catch (error) {

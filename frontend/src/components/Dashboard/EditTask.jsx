@@ -40,7 +40,7 @@ const EditTask = ({  EditTaskId ,setEditTaskDiv}) => {
 
     try {
       const res = await axios.put(
-        `http://localhost:4000/api/v1/task/editTask/${id}`,
+        `https://work-hive-backend.vercel.app/api/v1/task/editTask/${id}`,
         Values,
         { withCredentials: true }
       );
@@ -60,7 +60,7 @@ const EditTask = ({  EditTaskId ,setEditTaskDiv}) => {
 
     try {
       const res = await axios.delete(
-        `http://localhost:4000/api/v1/task/deleteTask/${id}`,
+        `https://work-hive-backend.vercel.app/api/v1/task/deleteTask/${id}`,
         
         { withCredentials: true }
       );

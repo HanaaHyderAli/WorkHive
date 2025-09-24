@@ -14,7 +14,7 @@ const AddTask = ({setAddTaskDiv}) => {
   e.preventDefault();
 
   try {
-    const response= await axios.post("http://localhost:4000/api/v1/task/addTask",Values,{withCredentials:true});
+    const response= await axios.post("https://work-hive-backend.vercel.app/api/v1/task/addTask",Values,{withCredentials:true});
     
       toast.success(response.data.success)
 

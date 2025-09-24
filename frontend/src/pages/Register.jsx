@@ -24,7 +24,7 @@ const navigate= useNavigate();
         try {
             e.preventDefault()
             const res= await axios.post(
-                "http://localhost:4000/api/v1/user/register",
+                "https://work-hive-backend.vercel.app/api/v1/user/register",
                 Values
             );
 

@@ -11,7 +11,7 @@ const Header = ({setAddTaskDiv}) => {
   const logout=async()=>{
    try {
     const res=await axios.post(
-      "http://localhost:4000/api/v1/user/logout",{},{withCredentials: true}
+      "https://work-hive-backend.vercel.app/v1/user/logout",{},{withCredentials: true}
     );
     toast.success(res.data.success)
     localStorage.clear("userLoggedIn")

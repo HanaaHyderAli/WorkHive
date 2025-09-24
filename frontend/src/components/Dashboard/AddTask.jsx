@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { toast } from 'react-toastify';
 import axios from 'axios'
+import { backendUrl } from '../../config';
 const AddTask = ({setAddTaskDiv}) => {
   const[Values,setValues]=useState({title:"",description:"",priority:"low",status:"yetToStart"})
 
@@ -14,7 +15,7 @@ const AddTask = ({setAddTaskDiv}) => {
   e.preventDefault();
 
   try {
-    const response= await axios.post("https://work-hive-backend.vercel.app/api/v1/task/addTask",Values,{withCredentials:true});
+    const response= await axios.post(backendUrl+"/api/v1/task/addTask",Values,{withCredentials:true});
     
       toast.success(response.data.success)
 

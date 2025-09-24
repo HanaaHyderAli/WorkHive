@@ -4,14 +4,15 @@ import {IoLogOutOutline} from "react-icons/io5"
 import { toast } from 'react-toastify'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { backendUrl } from '../../config'
 
 
 const Header = ({setAddTaskDiv}) => {
    const navigate=useNavigate();
   const logout=async()=>{
    try {
-    const res=await axios.post(
-      "https://work-hive-backend.vercel.app/v1/user/logout",{},{withCredentials: true}
+    const res=await axios.post(backendUrl+
+      "/api/v1/user/logout",{},{withCredentials: true}
     );
     toast.success(res.data.success)
     localStorage.clear("userLoggedIn")

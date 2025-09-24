@@ -4,6 +4,7 @@ import { Link,useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify';
+import { backendUrl } from '../config'
 
 const Login = () => {
   const navigate= useNavigate();
@@ -23,8 +24,8 @@ const Login = () => {
         try {
             e.preventDefault()
             
-            const res= await axios.post(
-                "https://work-hive-backend.vercel.app/api/v1/user/login",
+            const res= await axios.post(backendUrl+
+                "/api/v1/user/login",
                 Values,
                 {withCredentials:true,}
             );

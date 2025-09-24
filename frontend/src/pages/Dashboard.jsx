@@ -7,6 +7,7 @@ import InProgess from '../components/Dashboard/InProgess'
 import Completed from '../components/Dashboard/Completed'
 import axios from 'axios'
 import EditTask from '../components/Dashboard/EditTask'
+import { backendUrl } from '../config'
 const Dashboard = () => {
   const [AddTaskDiv,setAddTaskDiv]=useState("hidden")
   const [EditTaskDiv,setEditTaskDiv]=useState("hidden")
@@ -19,7 +20,7 @@ const Dashboard = () => {
     const fetchUserDetails=async()=>{
       try {
       
-        const res=await axios.get("https://work-hive-backend.vercel.app/api/v1/user/userDetails",{withCredentials:true});
+        const res=await axios.get(backendUrl+"/api/v1/user/userDetails",{withCredentials:true});
        
         setTasks(res.data.tasks)
       } catch (error) {

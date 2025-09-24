@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { toast } from "react-toastify";
 import axios from "axios";
+import { backendUrl } from "../../config";
 
 const EditTask = ({  EditTaskId ,setEditTaskDiv}) => {
     
@@ -23,7 +24,7 @@ const EditTask = ({  EditTaskId ,setEditTaskDiv}) => {
     
     try {
         
-        const res=await axios.get(`http://localhost:4000/api/v1/task/getTask/${EditTaskId}`,{withCredentials:true});
+        const res=await axios.get(backendUrl+`/api/v1/task/getTask/${EditTaskId}`,{withCredentials:true});
         
  
         setValues(res.data.taskDetails)
@@ -39,8 +40,8 @@ const EditTask = ({  EditTaskId ,setEditTaskDiv}) => {
     e.preventDefault();
 
     try {
-      const res = await axios.put(
-        `https://work-hive-backend.vercel.app/api/v1/task/editTask/${id}`,
+      const res = await axios.put(backendUrl+
+        `/api/v1/task/editTask/${id}`,
         Values,
         { withCredentials: true }
       );
@@ -59,8 +60,8 @@ const EditTask = ({  EditTaskId ,setEditTaskDiv}) => {
     e.preventDefault();
 
     try {
-      const res = await axios.delete(
-        `https://work-hive-backend.vercel.app/api/v1/task/deleteTask/${id}`,
+      const res = await axios.delete(backendUrl+
+        `/api/v1/task/deleteTask/${id}`,
         
         { withCredentials: true }
       );
